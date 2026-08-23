@@ -1,0 +1,31 @@
+{
+  "name": "@philipwryan/grow-advisor",
+  "version": "1.0.0",
+  "description": "The grow advisor's prompt and tool definitions, shared by GrowOS and Ryan Life.",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/sdk": ">=0.115.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
+    "typescript": "^5"
+  }
+}
