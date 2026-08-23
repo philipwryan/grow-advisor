@@ -1,6 +1,6 @@
 {
   "name": "@philipwryan/grow-advisor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The grow advisor's prompt and tool definitions, shared by GrowOS and Ryan Life.",
   "license": "UNLICENSED",
   "private": false,

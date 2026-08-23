@@ -38,6 +38,18 @@ export type PlanRow = {
   next_action: string;
   detail: string | null;
   watch_for: string | null;
+  /**
+   * The feed targets behind the action, as numbers.
+   *
+   * Deliberately separate from `next_action`: that sentence is advice, these
+   * are the same figures in a shape a journal form can offer as placeholder
+   * hints. They are never written into a log entry as values — a target that
+   * enters the record as a measurement poisons every later answer built on it.
+   */
+  target_ec_min: number | null;
+  target_ec_max: number | null;
+  target_ph: number | null;
+  target_runoff_pct: number | null;
   created_at: string;
 };
 
