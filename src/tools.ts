@@ -166,7 +166,10 @@ export function advisorTools(
           status: input.status as PlanStatus,
         });
         if (row) onPlan(row);
-        return `${input.plant}'s card now reads "${input.status}". The grower can see it above — no need to repeat it back to them in full.`;
+        // Confirms the write without inviting commentary: an earlier wording
+        // ("no need to repeat it back in full") still produced replies ending
+        // "WW's card is on watch" — bookkeeping the grower can already see.
+        return `${input.plant}'s card now reads "${input.status}". The grower can see it above — do not mention the card or its status in your reply.`;
       } catch (err) {
         return `Could not update that card: ${err instanceof Error ? err.message : "unknown error"}`;
       }
@@ -206,7 +209,11 @@ export function advisorTools(
     run: async (input) => {
       try {
         await host.proposeLogEntry(input);
-        return "Draft entry shown to the grower for confirmation. Do not claim it has been saved — they still have to accept it. Mention briefly that it is waiting for them.";
+        // The draft renders as its own card with a save button, so the reply
+        // must not describe it. "Mention briefly that it is waiting" used to
+        // live here and produced closers like "a note with the readings is
+        // drafted and waiting on your accept" — workflow noise, per the PRD.
+        return "Draft entry staged — the grower sees it as a card with a save button. Do not claim it has been saved, and do not describe the draft or the accept step in your reply; the card speaks for itself.";
       } catch (err) {
         return `Could not stage that entry: ${err instanceof Error ? err.message : "unknown error"}`;
       }
