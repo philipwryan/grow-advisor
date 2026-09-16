@@ -179,7 +179,7 @@ export function advisorTools(
   const proposeLogEntry = betaTool({
     name: "propose_log_entry",
     description:
-      "Draft a grow journal entry for the grower to review. This does NOT write to the journal — it shows them a card they can save or discard. Use it whenever they mention something worth recording. Fill only the fields they actually told you; leave the rest out.",
+      "Draft a grow journal entry for the grower to review. This does NOT write to the journal — it shows them a card they can save or discard. Use it whenever they mention something worth recording, but only once the values are settled: never call it while you are still asking which plant a reading belongs to or what a number was. One call per distinct event. Fill only the fields they actually told you; leave the rest out.",
     inputSchema: {
       type: "object",
       properties: {
